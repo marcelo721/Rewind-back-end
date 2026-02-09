@@ -1,20 +1,39 @@
-package com.marcelo721.rewind_back_end.domain.model.entities;
+package com.marcelo721.rewind_back_end.Adapters.outBound.entities;
+
 
 import com.marcelo721.rewind_back_end.domain.model.enums.UserType;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
-public class User {
+@Entity
+@Table(name = "users")
+public class JpaUserEntity {
 
-    private UUID ID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", nullable = false, unique = true)
+    private UUID id;
+
+
+    @Column(name = "nick_name", nullable = false, length = 21)
     private String nickName;
+
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "description",nullable = false, length = 100)
     private String description;
+
+    @Column(name = "role_user", nullable = false)
+    @Enumerated(EnumType.STRING)
     private UserType userType;
 
-    public User(UUID ID, String nickName, String email, String password, String description, UserType userType) {
-        this.ID = ID;
+    public JpaUserEntity(UUID id, String nickName, String email, String password, String description, UserType userType) {
+        this.id = id;
         this.userType = userType;
         this.nickName = nickName;
         this.email = email;
@@ -22,15 +41,16 @@ public class User {
         this.description = description;
     }
 
-    public User() {
+    public JpaUserEntity() {
     }
 
-    public UUID getID() {
-        return ID;
+
+    public UUID getId() {
+        return id;
     }
 
-    public void setID(UUID ID) {
-        this.ID = ID;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getNickName() {
