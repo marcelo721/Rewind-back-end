@@ -52,7 +52,7 @@ public class JpaUserEntity {
     public JpaUserEntity(User user){
         this.id = user.getID();
         this.statusAccount =  user.getStatusAccount();
-        this.userType = getUserType();
+        this.userType = user.getUserType();
         this.nickName = user.getNickName();
         this.email = user.getEmail();
         this.password = user.getPassword();

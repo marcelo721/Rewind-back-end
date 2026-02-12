@@ -24,19 +24,19 @@ public class UserServiceImpl implements UserUseCases {
     @Override
     @Transactional(readOnly = true)
     public User findById(UUID id) {
-        return null;
+        return userRepository.findById(id);
     }
 
 
     @Transactional
     @Override
     public void createUser(User user) {
-
+        userRepository.createUser(user);
     }
 
     @Transactional(readOnly = true)
     @Override
     public List<User> findAll() {
-        return List.of();
+        return userRepository.findAll();
     }
 }
