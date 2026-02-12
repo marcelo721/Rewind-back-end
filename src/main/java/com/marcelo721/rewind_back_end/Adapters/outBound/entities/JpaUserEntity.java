@@ -1,6 +1,8 @@
 package com.marcelo721.rewind_back_end.Adapters.outBound.entities;
 
 
+import com.marcelo721.rewind_back_end.domain.model.entities.User;
+import com.marcelo721.rewind_back_end.domain.model.enums.StatusAccount;
 import com.marcelo721.rewind_back_end.domain.model.enums.UserType;
 import jakarta.persistence.*;
 
@@ -32,8 +34,14 @@ public class JpaUserEntity {
     @Enumerated(EnumType.STRING)
     private UserType userType;
 
-    public JpaUserEntity(UUID id, String nickName, String email, String password, String description, UserType userType) {
+    @Column(name = "status_account", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private StatusAccount statusAccount;
+
+    public JpaUserEntity(UUID id, String nickName, String email, String password, String description,
+                         UserType userType, StatusAccount statusAccount) {
         this.id = id;
+        this.statusAccount = statusAccount;
         this.userType = userType;
         this.nickName = nickName;
         this.email = email;
@@ -41,9 +49,18 @@ public class JpaUserEntity {
         this.description = description;
     }
 
-    public JpaUserEntity() {
+    public JpaUserEntity(User user){
+        this.id = user.getID();
+        this.statusAccount =  user.getStatusAccount();
+        this.userType = getUserType();
+        this.nickName = user.getNickName();
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        this.description = user.getDescription();
     }
 
+    public JpaUserEntity() {
+    }
 
     public UUID getId() {
         return id;
@@ -83,6 +100,14 @@ public class JpaUserEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public StatusAccount getStatusAccount() {
+        return statusAccount;
+    }
+
+    public void setStatusAccount(StatusAccount statusAccount) {
+        this.statusAccount = statusAccount;
     }
 
     public UserType getUserType() {

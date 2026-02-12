@@ -1,5 +1,6 @@
 package com.marcelo721.rewind_back_end.domain.model.entities;
 
+import com.marcelo721.rewind_back_end.domain.model.enums.StatusAccount;
 import com.marcelo721.rewind_back_end.domain.model.enums.UserType;
 
 import java.util.UUID;
@@ -12,9 +13,12 @@ public class User {
     private String password;
     private String description;
     private UserType userType;
+    private StatusAccount statusAccount;
 
-    public User(UUID ID, String nickName, String email, String password, String description, UserType userType) {
+    public User(UUID ID, String nickName, String email, String password, String description,
+                UserType userType, StatusAccount statusAccount) {
         this.ID = ID;
+        this.statusAccount = statusAccount;
         this.userType = userType;
         this.nickName = nickName;
         this.email = email;
@@ -67,6 +71,14 @@ public class User {
 
     public UserType getUserType() {
         return userType;
+    }
+
+    public StatusAccount getStatusAccount() {
+        return statusAccount;
+    }
+
+    public void setStatusAccount(StatusAccount statusAccount) {
+        this.statusAccount = statusAccount;
     }
 
     public void setUserType(UserType userType) {
