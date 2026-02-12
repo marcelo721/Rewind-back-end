@@ -3,6 +3,7 @@ package com.marcelo721.rewind_back_end.domain.model.entities;
 import com.marcelo721.rewind_back_end.domain.model.enums.StatusAccount;
 import com.marcelo721.rewind_back_end.domain.model.enums.UserType;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class User {
@@ -14,16 +15,26 @@ public class User {
     private String description;
     private UserType userType;
     private StatusAccount statusAccount;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private String createdBy;
+    private String updatedBy;
+
 
     public User(UUID ID, String nickName, String email, String password, String description,
-                UserType userType, StatusAccount statusAccount) {
+                UserType userType, StatusAccount statusAccount, LocalDateTime createdAt,
+                LocalDateTime updatedAt, String createdBy, String updatedBy) {
         this.ID = ID;
-        this.statusAccount = statusAccount;
-        this.userType = userType;
         this.nickName = nickName;
         this.email = email;
         this.password = password;
         this.description = description;
+        this.userType = userType;
+        this.statusAccount = statusAccount;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.createdBy = createdBy;
+        this.updatedBy = updatedBy;
     }
 
     public User() {
@@ -83,5 +94,37 @@ public class User {
 
     public void setUserType(UserType userType) {
         this.userType = userType;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
     }
 }

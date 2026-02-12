@@ -25,7 +25,8 @@ public class UserRepositoryImpl implements UserRepository {
         return user.map(jpaUserEntity -> new User(jpaUserEntity.getId(),
                 jpaUserEntity.getNickName(), jpaUserEntity.getEmail(),
                 jpaUserEntity.getPassword(),jpaUserEntity.getDescription(),
-                jpaUserEntity.getUserType(), jpaUserEntity.getStatusAccount())).orElse(null);
+                jpaUserEntity.getUserType(), jpaUserEntity.getStatusAccount(),jpaUserEntity.getCreatedAt(), jpaUserEntity.getUpdatedAt()
+        ,jpaUserEntity.getCreatedBy(), jpaUserEntity.getUpdatedBy())).orElse(null);
     }
 
     @Override
@@ -39,6 +40,8 @@ public class UserRepositoryImpl implements UserRepository {
         return this.jpaUserRepository.findAll().stream().map(jpaUserEntity -> new User(jpaUserEntity.getId(),
                 jpaUserEntity.getNickName(), jpaUserEntity.getEmail(),
                 jpaUserEntity.getPassword(),jpaUserEntity.getDescription(),
-                jpaUserEntity.getUserType(), jpaUserEntity.getStatusAccount())).collect(Collectors.toList());
+                jpaUserEntity.getUserType(), jpaUserEntity.getStatusAccount()
+                ,jpaUserEntity.getCreatedAt(), jpaUserEntity.getUpdatedAt()
+                ,jpaUserEntity.getCreatedBy(), jpaUserEntity.getUpdatedBy())).collect(Collectors.toList());
     }
 }

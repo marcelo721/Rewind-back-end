@@ -5,12 +5,16 @@ import com.marcelo721.rewind_back_end.domain.model.entities.User;
 import com.marcelo721.rewind_back_end.domain.model.enums.StatusAccount;
 import com.marcelo721.rewind_back_end.domain.model.enums.UserType;
 import jakarta.persistence.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "users")
-public class JpaUserEntity {
+public class JpaUserEntity extends AuditableEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -38,15 +42,16 @@ public class JpaUserEntity {
     @Enumerated(EnumType.STRING)
     private StatusAccount statusAccount;
 
-    public JpaUserEntity(UUID id, String nickName, String email, String password, String description,
-                         UserType userType, StatusAccount statusAccount) {
+
+    public JpaUserEntity(UUID id, String nickName, String email, String password,
+                         String description, UserType userType, StatusAccount statusAccount) {
         this.id = id;
-        this.statusAccount = statusAccount;
-        this.userType = userType;
         this.nickName = nickName;
         this.email = email;
         this.password = password;
         this.description = description;
+        this.userType = userType;
+        this.statusAccount = statusAccount;
     }
 
     public JpaUserEntity(User user){
@@ -117,4 +122,5 @@ public class JpaUserEntity {
     public void setUserType(UserType userType) {
         this.userType = userType;
     }
+
 }
