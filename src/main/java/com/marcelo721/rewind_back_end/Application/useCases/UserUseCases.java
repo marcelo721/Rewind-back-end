@@ -1,0 +1,13 @@
+package com.marcelo721.rewind_back_end.Application.useCases;
+
+import com.marcelo721.rewind_back_end.domain.model.entities.User;
+
+import java.util.List;
+import java.util.UUID;
+
+public interface UserUseCases {
+
+    User findById(UUID id);
+    void createUser(User user);
+    List<User> findAll();
+}

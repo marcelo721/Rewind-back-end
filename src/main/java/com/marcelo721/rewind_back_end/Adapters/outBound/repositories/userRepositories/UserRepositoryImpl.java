@@ -1,14 +1,16 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.repositories;
+package com.marcelo721.rewind_back_end.Adapters.outBound.repositories.userRepositories;
 
 import com.marcelo721.rewind_back_end.Adapters.outBound.entities.JpaUserEntity;
 import com.marcelo721.rewind_back_end.domain.model.entities.User;
 import com.marcelo721.rewind_back_end.domain.repositories.UserRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@Repository
 public class UserRepositoryImpl implements UserRepository {
 
     private final JpaUserRepository jpaUserRepository;
