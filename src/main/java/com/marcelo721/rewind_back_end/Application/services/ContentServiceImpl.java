@@ -28,6 +28,9 @@ public class ContentServiceImpl implements ContentUseCases {
     @Override
     @Transactional
     public void createContent(Content content) {
+
+        content.setAverageRating(0.0);
+        content.setRatingsCount(0);
         contentRepository.createContent(content);
     }
 

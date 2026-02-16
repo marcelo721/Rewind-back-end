@@ -2,7 +2,6 @@ package com.marcelo721.rewind_back_end.Adapters.inBoud.Controllers;
 
 import com.marcelo721.rewind_back_end.Application.useCases.ContentUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.Content;
-import com.marcelo721.rewind_back_end.domain.model.entities.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -20,11 +20,12 @@ public class Content {
     private String updatedBy;
     private String source;
     private String externalId;
-
+    private Double averageRating;
+    private Integer ratingsCount;
 
     public Content(UUID id, String title, String description, LocalDate releaseDate,
                    ContentType contentType, LocalDateTime createdAt, LocalDateTime updatedAt,
-                   String createdBy, String updatedBy, String externalId, String source) {
+                   String createdBy, String updatedBy, String externalId, String source,) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -127,5 +128,21 @@ public class Content {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public Double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(Double averageRating) {
+        this.averageRating = averageRating;
+    }
+
+    public Integer getRatingsCount() {
+        return ratingsCount;
+    }
+
+    public void setRatingsCount(Integer ratingsCount) {
+        this.ratingsCount = ratingsCount;
     }
 }
