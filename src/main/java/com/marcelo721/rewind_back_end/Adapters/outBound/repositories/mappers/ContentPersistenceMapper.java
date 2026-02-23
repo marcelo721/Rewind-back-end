@@ -22,7 +22,9 @@ public class ContentPersistenceMapper {
                 entity.getCreatedBy(),
                 entity.getUpdatedBy(),
                 entity.getExternalId(),
-                entity.getSource()
+                entity.getSource(),
+                entity.getAverageRating(),
+                entity.getRatingsCount()
         );
     }
 
@@ -42,7 +44,8 @@ public class ContentPersistenceMapper {
         entity.setUpdatedBy(content.getUpdatedBy());
         entity.setExternalId(content.getExternalId());
         entity.setSource(content.getSource());
-
+        entity.setAverageRating(content.getAverageRating());
+        entity.setRatingsCount(content.getRatingsCount());
         return entity;
     }
 

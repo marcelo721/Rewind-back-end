@@ -7,7 +7,8 @@ import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
 
 public class MovieDetailsPersistenceMapper {
 
-    private MovieDetailsPersistenceMapper(){}
+    private MovieDetailsPersistenceMapper(){
+    }
 
     public static MovieDetails toDomain(JpaMovieDetailsEntity entity){
         if(entity == null) return null;

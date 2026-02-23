@@ -10,6 +10,8 @@ import java.util.UUID;
 @Table(name = "movie_details")
 public class JpaMovieDetailsEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", nullable = false, unique = true)
     private UUID id;
 
     @OneToOne
@@ -20,17 +22,17 @@ public class JpaMovieDetailsEntity {
     @Column(name = "director")
     private String director;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "movie_writers", joinColumns = @JoinColumn(name = "movie_writers_id"))
     @Column(name = "writers")
     private List<String> writers;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "movie_cast", joinColumns = @JoinColumn(name = "movie_cast_id"))
-    @Column(name = "cast")
+    @Column(name = "actors")
     private List<String> cast;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "movie_genres", joinColumns = @JoinColumn(name = "movie_details_id"))
     @Column(name = "genre")
     private List<String> genres;

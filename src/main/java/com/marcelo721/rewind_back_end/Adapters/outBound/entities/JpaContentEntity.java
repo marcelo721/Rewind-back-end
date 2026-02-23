@@ -42,8 +42,9 @@ public class JpaContentEntity extends AuditableEntity implements Serializable {
     private Integer ratingsCount;
 
 
-    public JpaContentEntity(UUID id, String title, String description,
-                            LocalDate releaseDate, ContentType contentType, String source, String externalId) {
+    public JpaContentEntity(UUID id, String title, String description, LocalDate releaseDate,
+                            ContentType contentType, String source, String externalId, Double averageRating,
+                            Integer ratingsCount) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -51,6 +52,8 @@ public class JpaContentEntity extends AuditableEntity implements Serializable {
         this.contentType = contentType;
         this.source = source;
         this.externalId = externalId;
+        this.averageRating = averageRating;
+        this.ratingsCount = ratingsCount;
     }
 
     public JpaContentEntity() {
