@@ -1,4 +1,4 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.repositories.contentRepositorie;
+package com.marcelo721.rewind_back_end.Adapters.outBound.repositories.contentRepositories;
 
 
 

@@ -1,4 +1,4 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.repositories.userRepositorie;
+package com.marcelo721.rewind_back_end.Adapters.outBound.repositories.userRepositories;
 
 
 import com.marcelo721.rewind_back_end.Adapters.outBound.entities.JpaUserEntity;

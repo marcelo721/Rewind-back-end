@@ -25,7 +25,7 @@ public class Content {
 
     public Content(UUID id, String title, String description, LocalDate releaseDate,
                    ContentType contentType, LocalDateTime createdAt, LocalDateTime updatedAt,
-                   String createdBy, String updatedBy, String externalId, String source,) {
+                   String createdBy, String updatedBy, String externalId, String source) {
         this.id = id;
         this.title = title;
         this.description = description;
