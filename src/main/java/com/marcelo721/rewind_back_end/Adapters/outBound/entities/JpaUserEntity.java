@@ -5,11 +5,9 @@ import com.marcelo721.rewind_back_end.domain.model.entities.User;
 import com.marcelo721.rewind_back_end.domain.model.enums.StatusAccount;
 import com.marcelo721.rewind_back_end.domain.model.enums.UserType;
 import jakarta.persistence.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
