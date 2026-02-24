@@ -8,6 +8,9 @@ public class MovieDetails {
     private UUID id;
     private Content content;
 
+    private String title;
+    private String description;
+
     private String director;
     private List<String> writers;
     private List<String> cast;
@@ -30,12 +33,15 @@ public class MovieDetails {
     private String awards;
 
 
-    public MovieDetails(UUID id, Content content, String director, List<String> writers,
-                        List<String> cast, List<String> genres, String rated, Integer durationMinutes,
-                        String originalLanguage, String country, String productionCompany, String boxOffice,
-                        Double imdbRating, Integer imdbVotes, Integer metascore, String awards) {
+    public MovieDetails(UUID id, Content content, String title, String description,
+                        String director, List<String> writers, List<String> cast,
+                        List<String> genres, String rated, Integer durationMinutes,
+                        String originalLanguage, String country, String productionCompany,
+                        String boxOffice, Double imdbRating, Integer imdbVotes, Integer metascore, String awards) {
         this.id = id;
         this.content = content;
+        this.title = title;
+        this.description = description;
         this.director = director;
         this.writers = writers;
         this.cast = cast;
@@ -181,5 +187,21 @@ public class MovieDetails {
 
     public void setAwards(String awards) {
         this.awards = awards;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

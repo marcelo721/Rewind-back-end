@@ -13,16 +13,12 @@ public class ContentPersistenceMapper {
 
         return new Content(
                 entity.getId(),
-                entity.getTitle(),
-                entity.getDescription(),
                 entity.getReleaseDate(),
                 entity.getContentType(),
                 entity.getCreatedAt(),
                 entity.getUpdatedAt(),
-                entity.getCreatedBy(),
-                entity.getUpdatedBy(),
-                entity.getExternalId(),
                 entity.getSource(),
+                entity.getExternalId(),
                 entity.getAverageRating(),
                 entity.getRatingsCount()
         );
@@ -34,14 +30,10 @@ public class ContentPersistenceMapper {
         JpaContentEntity entity = new JpaContentEntity();
 
         entity.setId(content.getId());
-        entity.setTitle(content.getTitle());
-        entity.setDescription(content.getDescription());
         entity.setReleaseDate(content.getReleaseDate());
         entity.setContentType(content.getContentType());
         entity.setCreatedAt(content.getCreatedAt());
         entity.setUpdatedAt(content.getUpdatedAt());
-        entity.setCreatedBy(content.getCreatedBy());
-        entity.setUpdatedBy(content.getUpdatedBy());
         entity.setExternalId(content.getExternalId());
         entity.setSource(content.getSource());
         entity.setAverageRating(content.getAverageRating());

@@ -31,7 +31,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponseDto> getUser(@PathVariable UUID id) {
+    public ResponseEntity<UserResponseDto> findById(@PathVariable UUID id) {
         User obj = service.findById(id);
         return ResponseEntity.ok(UserResponseDto.toDto(obj));
     }

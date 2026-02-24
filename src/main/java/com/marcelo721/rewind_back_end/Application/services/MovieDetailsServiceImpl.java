@@ -2,7 +2,9 @@ package com.marcelo721.rewind_back_end.Application.services;
 
 
 import com.marcelo721.rewind_back_end.Application.useCases.MovieDetailsUseCases;
+import com.marcelo721.rewind_back_end.domain.model.entities.Content;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
+import com.marcelo721.rewind_back_end.domain.repositories.ContentRepository;
 import com.marcelo721.rewind_back_end.domain.repositories.MovieDetailsRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,9 +16,11 @@ import java.util.UUID;
 public class MovieDetailsServiceImpl implements MovieDetailsUseCases {
 
     private final MovieDetailsRepository repository;
+    private final ContentRepository contentRepository;
 
-    public MovieDetailsServiceImpl(MovieDetailsRepository repository) {
+    public MovieDetailsServiceImpl(MovieDetailsRepository repository, ContentRepository contentRepository) {
         this.repository = repository;
+        this.contentRepository = contentRepository;
     }
 
 

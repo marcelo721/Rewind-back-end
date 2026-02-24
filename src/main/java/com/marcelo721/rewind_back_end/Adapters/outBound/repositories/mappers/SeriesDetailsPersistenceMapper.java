@@ -38,6 +38,8 @@ public class SeriesDetailsPersistenceMapper {
         entity.setImdbRating(domain.getImdbRating());
         entity.setMetascore(domain.getMetascore());
         entity.setAwards(domain.getAwards());
+        entity.setTitle(domain.getTitle());
+        entity.setDescription(domain.getDescription());
 
         return entity;
     }
@@ -45,13 +47,12 @@ public class SeriesDetailsPersistenceMapper {
     public static SeriesDetails toDomain(JpaSeriesDetailsEntity entity) {
 
         if (entity == null) return null;
-
         Content content = ContentPersistenceMapper.toDomain(entity.getContent());
-
-
         return new SeriesDetails(
                 entity.getId(),
                 content,
+                entity.getTitle(),
+                entity.getDescription(),
                 entity.getCreators(),
                 entity.getGenres(),
                 entity.getCast(),

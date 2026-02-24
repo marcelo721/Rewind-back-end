@@ -9,6 +9,9 @@ public class SeriesDetails {
     private UUID id;
     private Content content;
 
+    private String title;
+    private String description;
+
     private List<String> creators;
     private List<String> genres;
     private List<String> cast;
@@ -30,12 +33,16 @@ public class SeriesDetails {
     private String awards;
 
 
-    public SeriesDetails(UUID id, Content content, List<String> creators, List<String> genres,
-                         List<String> cast, Integer numberOfSeasons, Integer numberOfEpisodes, String status,
-                         LocalDate firstAirDate, LocalDate lastAirDate, String originalLanguage, String country,
-                         List<String> streamingPlatforms, Double imdbRating, Integer metascore, String awards) {
+    public SeriesDetails(UUID id, Content content, String title, String description,
+                         List<String> creators, List<String> genres, List<String> cast,
+                         Integer numberOfSeasons, Integer numberOfEpisodes, String status,
+                         LocalDate firstAirDate, LocalDate lastAirDate, String originalLanguage,
+                         String country, List<String> streamingPlatforms, Double imdbRating, Integer metascore,
+                         String awards) {
         this.id = id;
         this.content = content;
+        this.title = title;
+        this.description = description;
         this.creators = creators;
         this.genres = genres;
         this.cast = cast;
@@ -181,5 +188,21 @@ public class SeriesDetails {
 
     public void setAwards(String awards) {
         this.awards = awards;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -9,32 +9,23 @@ import java.util.UUID;
 public class Content {
 
     private UUID id;
-    private String title;
-    private String description;
     private LocalDate releaseDate;
     private ContentType contentType;
-
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private String createdBy;
-    private String updatedBy;
     private String source;
     private String externalId;
     private Double averageRating;
     private Integer ratingsCount;
 
-    public Content(UUID id, String title, String description, LocalDate releaseDate, ContentType contentType,
-                   LocalDateTime createdAt, LocalDateTime updatedAt, String createdBy, String updatedBy,
+    public Content(UUID id, LocalDate releaseDate, ContentType contentType,
+                   LocalDateTime createdAt, LocalDateTime updatedAt,
                    String source, String externalId, Double averageRating, Integer ratingsCount) {
         this.id = id;
-        this.title = title;
-        this.description = description;
         this.releaseDate = releaseDate;
         this.contentType = contentType;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-        this.createdBy = createdBy;
-        this.updatedBy = updatedBy;
         this.source = source;
         this.externalId = externalId;
         this.averageRating = averageRating;
@@ -52,21 +43,7 @@ public class Content {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -98,22 +75,6 @@ public class Content {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
     }
 
     public String getExternalId() {

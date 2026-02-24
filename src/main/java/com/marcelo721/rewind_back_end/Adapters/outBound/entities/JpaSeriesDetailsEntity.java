@@ -66,11 +66,18 @@ public class JpaSeriesDetailsEntity {
     @Column(name = "awards")
     private String awards;
 
-    public JpaSeriesDetailsEntity(UUID id, JpaContentEntity content, List<String> creators, List<String> genres,
-                                  List<String> cast, Integer numberOfSeasons, Integer numberOfEpisodes,
-                                  String status, LocalDate firstAirDate, LocalDate lastAirDate,
-                                  String originalLanguage, String country, List<String> streamingPlatforms,
-                                  Double imdbRating, Integer metascore, String awards) {
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    public JpaSeriesDetailsEntity(UUID id, JpaContentEntity content, List<String> creators,
+                                  List<String> genres, List<String> cast, Integer numberOfSeasons,
+                                  Integer numberOfEpisodes, String status, LocalDate firstAirDate,
+                                  LocalDate lastAirDate, String originalLanguage, String country,
+                                  List<String> streamingPlatforms, Double imdbRating, Integer metascore,
+                                  String awards, String title, String description) {
         this.id = id;
         this.content = content;
         this.creators = creators;
@@ -87,6 +94,8 @@ public class JpaSeriesDetailsEntity {
         this.imdbRating = imdbRating;
         this.metascore = metascore;
         this.awards = awards;
+        this.title = title;
+        this.description = description;
     }
 
     public JpaSeriesDetailsEntity() {
@@ -218,5 +227,21 @@ public class JpaSeriesDetailsEntity {
 
     public void setAwards(String awards) {
         this.awards = awards;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

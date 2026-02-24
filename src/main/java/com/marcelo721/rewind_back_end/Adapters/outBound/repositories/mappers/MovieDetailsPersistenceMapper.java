@@ -17,6 +17,8 @@ public class MovieDetailsPersistenceMapper {
         return new MovieDetails(
                 entity.getId(),
                 content,
+                entity.getTitle(),
+                entity.getDescription(),
                 entity.getDirector(),
                 entity.getWriters(),
                 entity.getCast(),
@@ -54,7 +56,9 @@ public class MovieDetailsPersistenceMapper {
                 entity.getImdbRating(),
                 entity.getImdbVotes(),
                 entity.getMetascore(),
-                entity.getAwards()
+                entity.getAwards(),
+                entity.getTitle(),
+                entity.getDescription()
         );
     }
 }

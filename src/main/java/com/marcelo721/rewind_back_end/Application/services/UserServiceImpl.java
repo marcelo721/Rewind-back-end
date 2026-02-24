@@ -2,6 +2,8 @@ package com.marcelo721.rewind_back_end.Application.services;
 
 import com.marcelo721.rewind_back_end.Application.useCases.UserUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.User;
+import com.marcelo721.rewind_back_end.domain.model.enums.StatusAccount;
+import com.marcelo721.rewind_back_end.domain.model.enums.UserType;
 import com.marcelo721.rewind_back_end.domain.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +33,8 @@ public class UserServiceImpl implements UserUseCases {
     @Transactional
     @Override
     public void createUser(User user) {
+        user.setUserType(UserType.CLIENT);
+        user.setStatusAccount(StatusAccount.ACTIVE);
         userRepository.createUser(user);
     }
 
