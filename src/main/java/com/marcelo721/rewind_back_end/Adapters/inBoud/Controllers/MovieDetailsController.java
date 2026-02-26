@@ -47,5 +47,4 @@ public class MovieDetailsController {
         List<MovieDetails> movies = service.findAll();
         return ResponseEntity.ok(MovieResponseDto.toListDto(movies));
     }
-
 }

@@ -19,16 +19,16 @@ public class JpaSeriesDetailsEntity {
     @JoinColumn(name = "content_id")
     private JpaContentEntity content;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "creators", joinColumns = @JoinColumn(name = "series_creators_id"))
     private List<String> creators;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "series_genres", joinColumns = @JoinColumn(name = "series_details_id"))
     @Column(name = "genre")
     private List<String> genres;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "series_cast", joinColumns = @JoinColumn(name = "series_cast_id"))
     @Column(name = "actors")
     private List<String> cast;
@@ -54,6 +54,8 @@ public class JpaSeriesDetailsEntity {
     @Column(name = "country")
     private String country;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "series_plataforms", joinColumns = @JoinColumn(name = "series_plastaform_id"))
     @Column(name = "streaming_platforms")
     private List<String> streamingPlatforms;
 
