@@ -1,8 +1,6 @@
 package com.marcelo721.rewind_back_end.Application.services;
 
-import com.marcelo721.rewind_back_end.Application.useCases.ContentUseCases;
 import com.marcelo721.rewind_back_end.Application.useCases.SeriesDetailsUseCases;
-import com.marcelo721.rewind_back_end.domain.model.entities.Content;
 import com.marcelo721.rewind_back_end.domain.model.entities.SeriesDetails;
 import com.marcelo721.rewind_back_end.domain.repositories.SeriesDetailsRepository;
 import org.springframework.stereotype.Service;
@@ -15,11 +13,9 @@ import java.util.UUID;
 public class SeriesDetailsServiceImpl implements SeriesDetailsUseCases {
 
     private final SeriesDetailsRepository repository;
-    private final ContentUseCases contentUseCases;
 
-    public SeriesDetailsServiceImpl(SeriesDetailsRepository repository, ContentUseCases contentUseCases) {
+    public SeriesDetailsServiceImpl(SeriesDetailsRepository repository) {
         this.repository = repository;
-        this.contentUseCases = contentUseCases;
     }
 
     @Override
@@ -31,8 +27,6 @@ public class SeriesDetailsServiceImpl implements SeriesDetailsUseCases {
     @Override
     @Transactional
     public void create(SeriesDetails seriesDetails) {
-        Content content = contentUseCases.findById(seriesDetails.getContent().getId());
-        seriesDetails.setContent(content);
         repository.create(seriesDetails);
     }
 

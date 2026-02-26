@@ -16,11 +16,9 @@ import java.util.UUID;
 public class MovieDetailsServiceImpl implements MovieDetailsUseCases {
 
     private final MovieDetailsRepository repository;
-    private final ContentRepository contentRepository;
 
-    public MovieDetailsServiceImpl(MovieDetailsRepository repository, ContentRepository contentRepository) {
+    public MovieDetailsServiceImpl(MovieDetailsRepository repository) {
         this.repository = repository;
-        this.contentRepository = contentRepository;
     }
 
 
