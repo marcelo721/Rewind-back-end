@@ -1,7 +1,13 @@
 package com.marcelo721.rewind_back_end.Adapters.inBoud.Controllers;
 
+import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.contentDto.ContentCreateDto;
+import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.contentDto.ContentResponseDto;
+import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.userDto.UserResponseDto;
 import com.marcelo721.rewind_back_end.Application.useCases.ContentUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.Content;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,18 +23,21 @@ public class ContentController {
         this.useCases = useCases;
     }
 
+    @PostMapping
+    public ResponseEntity<Void> createContent(@RequestBody @Valid ContentCreateDto content) {
+        Content obj = content.toEntity();
+        useCases.createContent(obj);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
     @GetMapping("/{id}")
-    public Content getContent(@PathVariable UUID id) {
-        return useCases.findById(id);
+    public ResponseEntity<ContentResponseDto> getContent(@PathVariable UUID id) {
+        Content obj =  useCases.findById(id);
+        return ResponseEntity.ok(ContentResponseDto.toDto(obj));
     }
 
     @GetMapping
     public List<Content> getAllContents() {
         return useCases.findAll();
-    }
-
-    @PostMapping
-    public void createContent(@RequestBody Content content) {
-        useCases.createContent(content);
     }
 }

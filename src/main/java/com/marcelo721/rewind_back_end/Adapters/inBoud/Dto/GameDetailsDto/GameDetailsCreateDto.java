@@ -19,11 +19,15 @@ public record GameDetailsCreateDto(
         @NotBlank
         String description,
 
+        @NotNull
         LocalDate releaseDate,
 
+        @NotBlank
         String status,
 
+        @NotBlank
         Integer metaCriticScore,
+
 
         List<String> platforms,
 

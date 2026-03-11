@@ -9,7 +9,6 @@ import java.util.UUID;
 public class Content {
 
     private UUID id;
-    private LocalDate releaseDate;
     private ContentType contentType;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -18,11 +17,10 @@ public class Content {
     private Double averageRating;
     private Integer ratingsCount;
 
-    public Content(UUID id, LocalDate releaseDate, ContentType contentType,
+    public Content(UUID id, ContentType contentType,
                    LocalDateTime createdAt, LocalDateTime updatedAt,
                    String source, String externalId, Double averageRating, Integer ratingsCount) {
         this.id = id;
-        this.releaseDate = releaseDate;
         this.contentType = contentType;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -43,15 +41,6 @@ public class Content {
         this.id = id;
     }
 
-
-
-    public LocalDate getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
-    }
 
     public ContentType getContentType() {
         return contentType;

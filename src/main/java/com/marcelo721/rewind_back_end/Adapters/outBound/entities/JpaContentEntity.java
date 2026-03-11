@@ -16,9 +16,6 @@ public class JpaContentEntity extends AuditableEntity implements Serializable {
     @Column(name = "id", nullable = false, unique = true)
     private UUID id;
 
-    @Column(name = "release_date", nullable = false)
-    private LocalDate releaseDate;
-
     @Column(name = "content_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private ContentType contentType;
@@ -36,11 +33,10 @@ public class JpaContentEntity extends AuditableEntity implements Serializable {
     private Integer ratingsCount;
 
 
-    public JpaContentEntity(UUID id, LocalDate releaseDate,
+    public JpaContentEntity(UUID id,
                             ContentType contentType, String source, String externalId, Double averageRating,
                             Integer ratingsCount) {
         this.id = id;
-        this.releaseDate = releaseDate;
         this.contentType = contentType;
         this.source = source;
         this.externalId = externalId;
@@ -57,14 +53,6 @@ public class JpaContentEntity extends AuditableEntity implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public LocalDate getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
     }
 
     public ContentType getContentType() {

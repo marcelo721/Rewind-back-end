@@ -13,7 +13,6 @@ public class ContentPersistenceMapper {
 
         return new Content(
                 entity.getId(),
-                entity.getReleaseDate(),
                 entity.getContentType(),
                 entity.getCreatedAt(),
                 entity.getUpdatedAt(),
@@ -30,7 +29,6 @@ public class ContentPersistenceMapper {
         JpaContentEntity entity = new JpaContentEntity();
 
         entity.setId(content.getId());
-        entity.setReleaseDate(content.getReleaseDate());
         entity.setContentType(content.getContentType());
         entity.setCreatedAt(content.getCreatedAt());
         entity.setUpdatedAt(content.getUpdatedAt());
