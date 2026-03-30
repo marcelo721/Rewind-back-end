@@ -47,9 +47,14 @@ public record MovieResponseDto(
 ) {
 
     public static MovieResponseDto toDto(MovieDetails movie) {
+
+        UUID contentId = movie.getContent() != null
+                ? movie.getContent().getId()
+                : null;
+
         return new MovieResponseDto(
                 movie.getId(),
-                movie.getContent().getId(),
+                contentId,
                 movie.getTitle(),
                 movie.getDescription(),
                 movie.getDirector(),

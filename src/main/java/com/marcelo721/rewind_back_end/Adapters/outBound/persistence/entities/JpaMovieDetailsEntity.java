@@ -1,47 +1,89 @@
-package com.marcelo721.rewind_back_end.domain.model.entities;
+package com.marcelo721.rewind_back_end.Adapters.outBound.persistence.entities;
+
+
+import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.UUID;
 
-public class MovieDetails {
-
+@Entity
+@Table(name = "movie_details")
+public class JpaMovieDetailsEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", nullable = false, unique = true)
     private UUID id;
-    private Content content;
 
-    private String title;
-    private String description;
+    @OneToOne
+    @JoinColumn(name = "content_id")
+    private JpaContentEntity content;
 
+
+    @Column(name = "director")
     private String director;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "movie_writers", joinColumns = @JoinColumn(name = "movie_writers_id"))
+    @Column(name = "writers")
     private List<String> writers;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "movie_cast", joinColumns = @JoinColumn(name = "movie_cast_id"))
+    @Column(name = "actors")
     private List<String> cast;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "movie_genres", joinColumns = @JoinColumn(name = "movie_details_id"))
+    @Column(name = "genre")
     private List<String> genres;
-    private String rated; // PG-13, R, etc
 
+    @Column(name = "rated")
+    private String rated;
+
+    @Column(name = "duration")
     private Integer durationMinutes;
+
+    @Column(name = "original_language")
     private String originalLanguage;
+
+    @Column(name = "country")
     private String country;
 
+    @Column(name ="production_company")
     private String productionCompany;
 
+    @Column(name = "box_office")
     private String boxOffice;
 
+    @Column(name = "imdb_rating")
     private Double imdbRating;
+
+    @Column(name = "imdb_votes")
     private Integer imdbVotes;
+
+    @Column(name = "metascore")
     private Integer metascore;
 
+    @Column(name = "awards")
     private String awards;
 
+    @Column(name = "title", nullable = false)
+    private String title;
 
-    public MovieDetails(UUID id, Content content, String title, String description,
-                        String director, List<String> writers, List<String> cast,
-                        List<String> genres, String rated, Integer durationMinutes,
-                        String originalLanguage, String country, String productionCompany,
-                        String boxOffice, Double imdbRating, Integer imdbVotes, Integer metascore, String awards) {
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    public JpaMovieDetailsEntity() {
+    }
+
+    public JpaMovieDetailsEntity(UUID id, JpaContentEntity content, String director,
+                                 List<String> writers, List<String> cast, List<String> genres,
+                                 String rated, Integer durationMinutes, String originalLanguage,
+                                 String country, String productionCompany, String boxOffice,
+                                 Double imdbRating, Integer imdbVotes, Integer metascore, String awards,
+                                 String title, String description) {
         this.id = id;
         this.content = content;
-        this.title = title;
-        this.description = description;
         this.director = director;
         this.writers = writers;
         this.cast = cast;
@@ -56,24 +98,15 @@ public class MovieDetails {
         this.imdbVotes = imdbVotes;
         this.metascore = metascore;
         this.awards = awards;
+        this.title = title;
+        this.description = description;
     }
 
-    public MovieDetails() {
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public Content getContent() {
+    public JpaContentEntity getContent() {
         return content;
     }
 
-    public void setContent(Content content) {
+    public void setContent(JpaContentEntity content) {
         this.content = content;
     }
 
@@ -187,6 +220,14 @@ public class MovieDetails {
 
     public void setAwards(String awards) {
         this.awards = awards;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getTitle() {
