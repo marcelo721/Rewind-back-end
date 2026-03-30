@@ -34,7 +34,6 @@ public record ContentResponseDto(
     }
     public static List<ContentResponseDto> toListDto(List<Content> contentList) {
         List<ContentResponseDto> list = new ArrayList<>();
-
         for (Content g : contentList) {
             list.add(toDto(g));
         }

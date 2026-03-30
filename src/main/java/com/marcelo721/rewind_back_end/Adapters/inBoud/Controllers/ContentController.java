@@ -2,7 +2,6 @@ package com.marcelo721.rewind_back_end.Adapters.inBoud.Controllers;
 
 import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.contentDto.ContentCreateDto;
 import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.contentDto.ContentResponseDto;
-import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.userDto.UserResponseDto;
 import com.marcelo721.rewind_back_end.Application.useCases.ContentUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.Content;
 import jakarta.validation.Valid;
@@ -37,7 +36,8 @@ public class ContentController {
     }
 
     @GetMapping
-    public List<Content> getAllContents() {
-        return useCases.findAll();
+    public ResponseEntity<List<ContentResponseDto>> getAllContents() {
+        List<Content> contents = useCases.findAll();
+        return ResponseEntity.ok(ContentResponseDto.toListDto(contents));
     }
 }
