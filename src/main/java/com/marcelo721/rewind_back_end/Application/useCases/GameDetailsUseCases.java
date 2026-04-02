@@ -6,7 +6,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface GameDetailsUseCases {
-    GameDetails findById(UUID id);
-    void create(GameDetails gameDetails);
-    List<GameDetails> findAll();
+
 }

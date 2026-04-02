@@ -8,9 +8,6 @@ import java.util.UUID;
 
 public interface MovieDetailsUseCases {
 
-    MovieDetails findById(UUID id);
-    void create(MovieDetails movieDetails);
-    List<MovieDetails> findAll();
     MovieDetails getFromProvider(String imdbId);
     List<MovieSummary> searchByTitle(String title);
     public List<MovieDetails> searchByGenre(String genre, int page);

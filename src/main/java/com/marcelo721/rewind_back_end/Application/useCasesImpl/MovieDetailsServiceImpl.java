@@ -4,7 +4,6 @@ package com.marcelo721.rewind_back_end.Application.useCasesImpl;
 import com.marcelo721.rewind_back_end.Application.useCases.MovieDetailsUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
-import com.marcelo721.rewind_back_end.domain.ports.MovieDetailsRepository;
 import com.marcelo721.rewind_back_end.domain.ports.MovieGenreProviderRepository;
 import com.marcelo721.rewind_back_end.domain.ports.MovieProviderRepository;
 import org.springframework.stereotype.Service;
@@ -17,32 +16,12 @@ import java.util.UUID;
 @Service
 public class MovieDetailsServiceImpl implements MovieDetailsUseCases {
 
-    private final MovieDetailsRepository repository;
     private final MovieProviderRepository omdb;
     private final MovieGenreProviderRepository tmdb;
 
-    public MovieDetailsServiceImpl(MovieDetailsRepository repository, MovieProviderRepository omdbProvider, MovieGenreProviderRepository tmdb) {
-        this.repository = repository;
+    public MovieDetailsServiceImpl( MovieProviderRepository omdbProvider, MovieGenreProviderRepository tmdb) {
         this.omdb = omdbProvider;
         this.tmdb = tmdb;
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public MovieDetails findById(UUID id) {
-        return repository.findById(id);
-    }
-
-    @Override
-    @Transactional
-    public void create(MovieDetails movieDetails) {
-        repository.create(movieDetails);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<MovieDetails> findAll() {
-        return repository.findAll();
     }
 
     @Override

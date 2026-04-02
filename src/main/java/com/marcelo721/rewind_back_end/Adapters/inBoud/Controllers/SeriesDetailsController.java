@@ -29,26 +29,4 @@ public class SeriesDetailsController {
         this.useCases = useCases;
         this.contentUseCases = contentUseCases;
     }
-
-
-    @PostMapping
-    public ResponseEntity<Void> create(@RequestBody @Valid SeriesDetailsCreateDto series) {
-        Content content = contentUseCases.findById(series.contentId());
-        SeriesDetails obj = series.toDomain();
-        obj.setContent(content);
-        useCases.create(obj);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<SeriesDetailsResponseDto> findById(@PathVariable UUID id) {
-        SeriesDetails obj = useCases.findById(id);
-        return ResponseEntity.ok(SeriesDetailsResponseDto.toDto(obj));
-    }
-
-    @GetMapping
-    public ResponseEntity<List<SeriesDetailsResponseDto>> getAll() {
-        List<SeriesDetails> series = useCases.findAll();
-        return ResponseEntity.ok(SeriesDetailsResponseDto.toListDto(series));
-    }
 }

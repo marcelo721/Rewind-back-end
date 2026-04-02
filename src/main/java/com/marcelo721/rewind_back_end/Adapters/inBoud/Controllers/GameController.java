@@ -25,25 +25,4 @@ public class GameController {
         this.gameDetailsUseCases = gameDetailsUseCases;
         this.contentUseCases = contentUseCases;
     }
-
-    @PostMapping
-    public ResponseEntity<Void> create(@RequestBody @Valid GameDetailsCreateDto game) {
-        Content content = contentUseCases.findById(game.contentId());
-        GameDetails obj = game.toDomain();
-        obj.setContent(content);
-        gameDetailsUseCases.create(obj);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<GameDetailsResponseDto> findById(@PathVariable UUID id) {
-        GameDetails obj = gameDetailsUseCases.findById(id);
-        return ResponseEntity.ok(GameDetailsResponseDto.toDto(obj));
-    }
-
-    @GetMapping
-    public ResponseEntity<List<GameDetailsResponseDto>> getAll() {
-        List<GameDetails> games = gameDetailsUseCases.findAll();
-        return ResponseEntity.ok(GameDetailsResponseDto.toListDto(games));
-    }
 }

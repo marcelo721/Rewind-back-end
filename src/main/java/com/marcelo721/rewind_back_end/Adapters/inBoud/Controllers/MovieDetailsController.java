@@ -27,28 +27,6 @@ public class MovieDetailsController {
         this.contentUseCases = contentUseCases;
     }
 
-
-    @PostMapping
-    public ResponseEntity<Void> create(@RequestBody @Valid MovieDetailsCreateDto movie) {
-        Content content = contentUseCases.findById(movie.contentId());
-        MovieDetails obj = movie.toDomain();
-        obj.setContent(content);
-        service.create(obj);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<MovieResponseDto> findById(@PathVariable UUID id) {
-        MovieDetails obj = service.findById(id);
-        return ResponseEntity.ok(MovieResponseDto.toDto(obj));
-    }
-
-    @GetMapping
-    public ResponseEntity<List<MovieResponseDto>> getAll() {
-        List<MovieDetails> movies = service.findAll();
-        return ResponseEntity.ok(MovieResponseDto.toListDto(movies));
-    }
-
     @GetMapping("/imdb/{imdbId}")
     public ResponseEntity<MovieResponseDto> getFromOmdb(@PathVariable String imdbId) {
         MovieDetails movie = service.getFromProvider(imdbId);
