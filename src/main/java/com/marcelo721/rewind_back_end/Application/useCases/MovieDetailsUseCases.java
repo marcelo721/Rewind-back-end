@@ -13,4 +13,5 @@ public interface MovieDetailsUseCases {
     List<MovieDetails> findAll();
     MovieDetails getFromProvider(String imdbId);
     List<MovieSummary> searchByTitle(String title);
+    public List<MovieDetails> searchByGenre(String genre, int page);
 }

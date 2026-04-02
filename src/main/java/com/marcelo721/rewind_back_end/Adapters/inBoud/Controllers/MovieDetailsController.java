@@ -3,7 +3,6 @@ package com.marcelo721.rewind_back_end.Adapters.inBoud.Controllers;
 import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.movieDto.MovieDetailsCreateDto;
 import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.movieDto.MovieResponseDto;
 import com.marcelo721.rewind_back_end.Application.useCases.ContentUseCases;
-import com.marcelo721.rewind_back_end.Application.useCases.GetMovieByImdbIdUseCases;
 import com.marcelo721.rewind_back_end.Application.useCases.MovieDetailsUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.Content;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
@@ -59,5 +58,13 @@ public class MovieDetailsController {
     @GetMapping("/search")
     public List<MovieSummary> search(@RequestParam String title) {
         return service.searchByTitle(title);
+    }
+
+    @GetMapping("/genre")
+    public List<MovieDetails> searchByGenre(
+            @RequestParam String genre,
+            @RequestParam(defaultValue = "1") int page) {
+
+        return service.searchByGenre(genre, page);
     }
 }
