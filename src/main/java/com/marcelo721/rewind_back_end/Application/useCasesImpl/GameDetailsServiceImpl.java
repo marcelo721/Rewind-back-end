@@ -2,7 +2,7 @@ package com.marcelo721.rewind_back_end.Application.useCasesImpl;
 
 import com.marcelo721.rewind_back_end.Application.useCases.GameDetailsUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.GameDetails;
-import com.marcelo721.rewind_back_end.domain.repositories.GameDetailsRepository;
+import com.marcelo721.rewind_back_end.domain.ports.GameDetailsRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

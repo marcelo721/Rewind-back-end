@@ -3,7 +3,7 @@ package com.marcelo721.rewind_back_end.Application.useCasesImpl;
 
 import com.marcelo721.rewind_back_end.Application.useCases.ContentUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.Content;
-import com.marcelo721.rewind_back_end.domain.repositories.ContentRepository;
+import com.marcelo721.rewind_back_end.domain.ports.ContentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

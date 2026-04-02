@@ -3,7 +3,7 @@ package com.marcelo721.rewind_back_end.Adapters.outBound.persistence.repositorie
 
 import com.marcelo721.rewind_back_end.Adapters.outBound.persistence.repositories.mappers.MovieDetailsPersistenceMapper;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
-import com.marcelo721.rewind_back_end.domain.repositories.MovieDetailsRepository;
+import com.marcelo721.rewind_back_end.domain.ports.MovieDetailsRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

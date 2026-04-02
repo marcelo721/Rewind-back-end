@@ -2,7 +2,7 @@ package com.marcelo721.rewind_back_end.Application.useCasesImpl;
 
 import com.marcelo721.rewind_back_end.Application.useCases.SeriesDetailsUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.SeriesDetails;
-import com.marcelo721.rewind_back_end.domain.repositories.SeriesDetailsRepository;
+import com.marcelo721.rewind_back_end.domain.ports.SeriesDetailsRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

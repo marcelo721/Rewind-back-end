@@ -1,6 +1,5 @@
-package com.marcelo721.rewind_back_end.domain.repositories;
+package com.marcelo721.rewind_back_end.domain.ports;
 
-import com.marcelo721.rewind_back_end.domain.model.entities.Content;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
 
 import java.util.List;

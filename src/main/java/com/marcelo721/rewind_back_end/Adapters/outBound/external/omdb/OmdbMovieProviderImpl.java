@@ -5,8 +5,7 @@ import com.marcelo721.rewind_back_end.Adapters.outBound.external.omdb.dto.OmdbSe
 import com.marcelo721.rewind_back_end.Adapters.outBound.external.omdb.mapper.OmdbMovieMapper;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
-import com.marcelo721.rewind_back_end.domain.repositories.MovieProviderRepository;
-import org.springframework.beans.factory.annotation.Value;
+import com.marcelo721.rewind_back_end.domain.ports.MovieProviderRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 

@@ -4,7 +4,7 @@ import com.marcelo721.rewind_back_end.Application.useCases.UserUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.User;
 import com.marcelo721.rewind_back_end.domain.model.enums.StatusAccount;
 import com.marcelo721.rewind_back_end.domain.model.enums.UserType;
-import com.marcelo721.rewind_back_end.domain.repositories.UserRepository;
+import com.marcelo721.rewind_back_end.domain.ports.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

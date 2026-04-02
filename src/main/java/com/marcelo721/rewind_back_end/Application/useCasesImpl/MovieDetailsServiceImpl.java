@@ -4,9 +4,9 @@ package com.marcelo721.rewind_back_end.Application.useCasesImpl;
 import com.marcelo721.rewind_back_end.Application.useCases.MovieDetailsUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
-import com.marcelo721.rewind_back_end.domain.repositories.MovieDetailsRepository;
-import com.marcelo721.rewind_back_end.domain.repositories.MovieGenreProviderRepository;
-import com.marcelo721.rewind_back_end.domain.repositories.MovieProviderRepository;
+import com.marcelo721.rewind_back_end.domain.ports.MovieDetailsRepository;
+import com.marcelo721.rewind_back_end.domain.ports.MovieGenreProviderRepository;
+import com.marcelo721.rewind_back_end.domain.ports.MovieProviderRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

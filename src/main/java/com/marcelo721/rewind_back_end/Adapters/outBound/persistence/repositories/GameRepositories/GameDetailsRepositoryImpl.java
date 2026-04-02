@@ -3,7 +3,7 @@ package com.marcelo721.rewind_back_end.Adapters.outBound.persistence.repositorie
 
 import com.marcelo721.rewind_back_end.Adapters.outBound.persistence.repositories.mappers.GameDetailsPersistenceMapper;
 import com.marcelo721.rewind_back_end.domain.model.entities.GameDetails;
-import com.marcelo721.rewind_back_end.domain.repositories.GameDetailsRepository;
+import com.marcelo721.rewind_back_end.domain.ports.GameDetailsRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

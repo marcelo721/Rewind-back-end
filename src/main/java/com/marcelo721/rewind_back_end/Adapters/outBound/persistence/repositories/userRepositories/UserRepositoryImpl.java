@@ -2,7 +2,7 @@ package com.marcelo721.rewind_back_end.Adapters.outBound.persistence.repositorie
 
 import com.marcelo721.rewind_back_end.Adapters.outBound.persistence.repositories.mappers.UserPersistenceMapper;
 import com.marcelo721.rewind_back_end.domain.model.entities.User;
-import com.marcelo721.rewind_back_end.domain.repositories.UserRepository;
+import com.marcelo721.rewind_back_end.domain.ports.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

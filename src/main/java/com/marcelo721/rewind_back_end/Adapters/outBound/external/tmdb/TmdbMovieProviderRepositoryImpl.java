@@ -3,7 +3,7 @@ package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdb;
 import com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdb.Dto.TmdbMovieDetailsResponse;
 import com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdb.Dto.TmdbSearchResponse;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
-import com.marcelo721.rewind_back_end.domain.repositories.MovieGenreProviderRepository;
+import com.marcelo721.rewind_back_end.domain.ports.MovieGenreProviderRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.cache.annotation.Cacheable;

@@ -4,7 +4,7 @@ package com.marcelo721.rewind_back_end.Adapters.outBound.persistence.repositorie
 
 import com.marcelo721.rewind_back_end.Adapters.outBound.persistence.repositories.mappers.ContentPersistenceMapper;
 import com.marcelo721.rewind_back_end.domain.model.entities.Content;
-import com.marcelo721.rewind_back_end.domain.repositories.ContentRepository;
+import com.marcelo721.rewind_back_end.domain.ports.ContentRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
