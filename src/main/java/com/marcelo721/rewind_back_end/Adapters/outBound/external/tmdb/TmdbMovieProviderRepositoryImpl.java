@@ -35,7 +35,7 @@ public class TmdbMovieProviderRepositoryImpl implements MovieGenreProviderReposi
                         .path("/discover/movie")
                         .queryParam("with_genres", genreId)
                         .queryParam("api_key", apiKey)
-                        .queryParam("page", page) // 🔥 PAGINAÇÃO REAL
+                        .queryParam("page", page)
                         .build())
                 .retrieve()
                 .bodyToMono(TmdbSearchResponse.class)

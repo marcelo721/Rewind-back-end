@@ -1,7 +1,5 @@
 package com.marcelo721.rewind_back_end.Adapters.inBoud.Controllers;
 
-import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.GameDetailsDto.GameDetailsCreateDto;
-import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.GameDetailsDto.GameDetailsResponseDto;
 import com.marcelo721.rewind_back_end.Application.useCases.ContentUseCases;
 import com.marcelo721.rewind_back_end.Application.useCases.GameDetailsUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.Content;

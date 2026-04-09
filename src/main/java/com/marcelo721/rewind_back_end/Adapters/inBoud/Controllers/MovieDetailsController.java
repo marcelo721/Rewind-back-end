@@ -1,7 +1,6 @@
 package com.marcelo721.rewind_back_end.Adapters.inBoud.Controllers;
 
-import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.movieDto.MovieDetailsCreateDto;
-import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.movieDto.MovieResponseDto;
+import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.MovieDto.MovieResponseDto;
 import com.marcelo721.rewind_back_end.Application.useCases.ContentUseCases;
 import com.marcelo721.rewind_back_end.Application.useCases.MovieDetailsUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.Content;
@@ -34,8 +33,10 @@ public class MovieDetailsController {
     }
 
     @GetMapping("/search")
-    public List<MovieSummary> search(@RequestParam String title) {
-        return service.searchByTitle(title);
+    public ResponseEntity<List<MovieSummary>> search(@RequestParam String title) {
+        List<MovieSummary> movies =  service.searchByTitle(title);
+
+        return ResponseEntity.ok(movies);
     }
 
     @GetMapping("/genre")
