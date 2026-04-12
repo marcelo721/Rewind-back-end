@@ -1,6 +1,6 @@
-package com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbMovies.mapper;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbMovies.mapper;
 
-import com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbMovies.dto.TmdbMovieDto;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbMovies.Dto.TmdbMovieDto;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
 import org.springframework.stereotype.Component;
 

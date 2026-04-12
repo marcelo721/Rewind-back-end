@@ -1,4 +1,4 @@
-package com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbMovies.dto;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbMovies.Dto;
 
 import java.util.List;
 
