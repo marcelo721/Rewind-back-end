@@ -32,4 +32,11 @@ public class TmdbClient {
         String url = BASE_URL + "/tv/" + id + "/watch/providers?api_key=" + apiKey;
         return restTemplate.getForObject(url, Map.class);
     }
+
+    public Map<String, Object> getWatchProviders(String id) {
+        return restTemplate.getForObject(
+                BASE_URL + "/tv/" + id + "/watch/providers?api_key=" + apiKey,
+                Map.class
+        );
+    }
 }

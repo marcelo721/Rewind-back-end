@@ -46,6 +46,9 @@ public class TmdbSeriesProviderImpl implements SeriesProviderRepository {
     @Override
     public SeriesDetails getByImdbId(String id) {
 
+        // =========================
+        // 🎬 1. Dados principais (TMDb)
+        // =========================
         Map<String, Object> response = tmdbClient.getSeriesDetails(id);
 
         String title = (String) response.get("name");
@@ -53,11 +56,9 @@ public class TmdbSeriesProviderImpl implements SeriesProviderRepository {
 
         Integer seasons = (Integer) response.get("number_of_seasons");
         Integer episodes = (Integer) response.get("number_of_episodes");
-        String posterPath = (String) response.get("poster_path");
 
-        String posterUrl = posterPath != null
-                ? IMAGE_BASE + posterPath
-                : null;
+        String posterPath = (String) response.get("poster_path");
+        String posterUrl = posterPath != null ? IMAGE_BASE + posterPath : null;
 
         String status = (String) response.get("status");
         String language = (String) response.get("original_language");
@@ -71,9 +72,42 @@ public class TmdbSeriesProviderImpl implements SeriesProviderRepository {
         List<String> creators = ((List<Map<String, Object>>) response.get("created_by"))
                 .stream().map(c -> (String) c.get("name")).toList();
 
+        // =========================
+        // 📺 2. Plataformas (CORRIGIDO)
+        // =========================
+        List<String> streamingPlatforms = List.of();
+
+        Map<String, Object> providersResponse = tmdbClient.getWatchProviders(id);
+
+        if (providersResponse != null) {
+            Map<String, Object> results =
+                    (Map<String, Object>) providersResponse.get("results");
+
+            if (results != null && results.containsKey("BR")) {
+
+                Map<String, Object> br =
+                        (Map<String, Object>) results.get("BR");
+
+                List<Map<String, Object>> flatrate =
+                        (List<Map<String, Object>>) br.get("flatrate");
+
+                if (flatrate != null) {
+                    streamingPlatforms = flatrate.stream()
+                            .map(p -> (String) p.get("provider_name"))
+                            .toList();
+                }
+            }
+        }
+
+        // =========================
+        // 🔗 3. IMDb ID
+        // =========================
         Map<String, Object> external = tmdbClient.getExternalIds(id);
         String imdbId = (String) external.get("imdb_id");
 
+        // =========================
+        // 🏆 4. OMDb (rating + awards)
+        // =========================
         Double rating = null;
         String awards = null;
 
@@ -81,6 +115,7 @@ public class TmdbSeriesProviderImpl implements SeriesProviderRepository {
             Map<String, Object> omdb = omdbClient.getByImdbId(imdbId);
 
             if (omdb != null && !"False".equals(omdb.get("Response"))) {
+
                 awards = (String) omdb.get("Awards");
 
                 String ratingStr = (String) omdb.get("imdbRating");
@@ -90,10 +125,27 @@ public class TmdbSeriesProviderImpl implements SeriesProviderRepository {
             }
         }
 
-        return new SeriesDetails(posterUrl, title, description,
-                creators, genres, List.of(), seasons, episodes, status, firstAirDate,
-                lastAirDate, language, null, List.of(),
-                rating, null, awards
+        // =========================
+        // 🎯 Resultado final
+        // =========================
+        return new SeriesDetails(
+                posterUrl,
+                title,
+                description,
+                creators,
+                genres,
+                List.of(), // cast ainda não implementado
+                seasons,
+                episodes,
+                status,
+                firstAirDate,
+                lastAirDate,
+                language,
+                null,
+                streamingPlatforms,
+                rating,
+                null,
+                awards
         );
     }
 }
