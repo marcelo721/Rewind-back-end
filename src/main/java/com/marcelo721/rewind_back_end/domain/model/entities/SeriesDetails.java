@@ -6,8 +6,7 @@ import java.util.UUID;
 
 public class SeriesDetails {
 
-    private UUID id;
-    private Content content;
+    private String postUrl;
 
     private String title;
     private String description;
@@ -33,14 +32,13 @@ public class SeriesDetails {
     private String awards;
 
 
-    public SeriesDetails(UUID id, Content content, String title, String description,
+    public SeriesDetails(String postUrl, String title, String description,
                          List<String> creators, List<String> genres, List<String> cast,
                          Integer numberOfSeasons, Integer numberOfEpisodes, String status,
                          LocalDate firstAirDate, LocalDate lastAirDate, String originalLanguage,
                          String country, List<String> streamingPlatforms, Double imdbRating, Integer metascore,
                          String awards) {
-        this.id = id;
-        this.content = content;
+        this.postUrl = postUrl;
         this.title = title;
         this.description = description;
         this.creators = creators;
@@ -62,21 +60,6 @@ public class SeriesDetails {
     public SeriesDetails() {
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public Content getContent() {
-        return content;
-    }
-
-    public void setContent(Content content) {
-        this.content = content;
-    }
 
     public List<String> getCreators() {
         return creators;
@@ -204,5 +187,13 @@ public class SeriesDetails {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPostUrl() {
+        return postUrl;
+    }
+
+    public void setPostUrl(String postUrl) {
+        this.postUrl = postUrl;
     }
 }

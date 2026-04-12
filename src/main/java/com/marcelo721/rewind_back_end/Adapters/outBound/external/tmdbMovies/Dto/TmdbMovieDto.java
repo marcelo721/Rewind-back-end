@@ -1,4 +1,4 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdb.Dto;
+package com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbMovies.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
