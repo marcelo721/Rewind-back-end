@@ -1,9 +1,8 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbMovies;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.tmdbMovies;
 
-import com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbMovies.Dto.TmdbSearchResponse;
-import com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbMovies.dto.TmdbMovieDetailsResponse;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.tmdbMovies.Dto.TmdbSearchResponse;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.tmdbMovies.Dto.TmdbMovieDetailsResponse;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
-import com.marcelo721.rewind_back_end.domain.ports.MovieGenreProviderRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.cache.annotation.Cacheable;
@@ -12,12 +11,12 @@ import java.util.List;
 import java.util.Objects;
 
 @Component
-public class TmdbMovieProviderRepositoryImpl implements MovieGenreProviderRepository {
+public class TmdbMovieProvider {
 
     private  WebClient webClient;
     private  String apiKey;
 
-    public TmdbMovieProviderRepositoryImpl(WebClient.Builder builder) {
+    public TmdbMovieProvider(WebClient.Builder builder) {
         this.webClient = builder
                 .baseUrl("https://api.themoviedb.org/3")
                 .build();
@@ -25,7 +24,6 @@ public class TmdbMovieProviderRepositoryImpl implements MovieGenreProviderReposi
         this.apiKey = System.getenv("API_KEY_TMDB");
     }
 
-    @Override
     public List<MovieSummary> searchByGenre(String genre, int page) {
 
         int genreId = mapGenreToId(genre);

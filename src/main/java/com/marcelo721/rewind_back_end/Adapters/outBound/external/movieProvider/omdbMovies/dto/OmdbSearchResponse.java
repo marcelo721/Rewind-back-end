@@ -1,4 +1,4 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.omdb.dto;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.omdbMovies.dto;
 
 import java.util.List;
 

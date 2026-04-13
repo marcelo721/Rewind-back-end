@@ -1,7 +1,7 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbMovies.client;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.tmdbMovies.client;
 
-import com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbMovies.Dto.TmdbSearchResponse;
-import com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbMovies.dto.TmdbMovieDetailsResponse;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.tmdbMovies.Dto.TmdbSearchResponse;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.tmdbMovies.Dto.TmdbMovieDetailsResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 

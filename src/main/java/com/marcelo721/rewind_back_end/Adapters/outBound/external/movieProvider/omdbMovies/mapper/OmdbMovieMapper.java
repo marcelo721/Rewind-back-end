@@ -1,6 +1,6 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.omdb.mapper;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.omdbMovies.mapper;
 
-import com.marcelo721.rewind_back_end.Adapters.outBound.external.omdb.dto.OmdbMovieResponse;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.omdbMovies.dto.OmdbMovieResponse;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
 

@@ -1,28 +1,26 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.omdb;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.omdbMovies;
 
-import com.marcelo721.rewind_back_end.Adapters.outBound.external.omdb.dto.OmdbMovieResponse;
-import com.marcelo721.rewind_back_end.Adapters.outBound.external.omdb.dto.OmdbSearchResponse;
-import com.marcelo721.rewind_back_end.Adapters.outBound.external.omdb.mapper.OmdbMovieMapper;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.omdbMovies.dto.OmdbMovieResponse;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.omdbMovies.dto.OmdbSearchResponse;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.omdbMovies.mapper.OmdbMovieMapper;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
-import com.marcelo721.rewind_back_end.domain.ports.MovieProviderRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
 @Component
-public class OmdbMovieProviderImpl implements MovieProviderRepository {
+public class OmdbMovieProvider {
 
     private final WebClient webClient;
 
     private String  apiKey  = System.getenv("API_KEY");
 
-    public OmdbMovieProviderImpl(WebClient.Builder builder) {
+    public OmdbMovieProvider(WebClient.Builder builder) {
         this.webClient = builder.baseUrl("http://www.omdbapi.com").build();
     }
 
-    @Override
     public MovieDetails getByImdbId(String imdbId) {
 
         OmdbMovieResponse response = webClient.get()
@@ -37,7 +35,6 @@ public class OmdbMovieProviderImpl implements MovieProviderRepository {
         return OmdbMovieMapper.toDomain(response);
     }
 
-    @Override
     public List<MovieSummary> searchByTitle(String title) {
 
         OmdbSearchResponse response = webClient.get()

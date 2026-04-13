@@ -1,7 +1,7 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbMovies;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.tmdbMovies;
 
-import com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbMovies.client.TmdbMovieClient;
-import com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbMovies.dto.TmdbMovieDetailsResponse;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.tmdbMovies.client.TmdbMovieClient;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.movieProvider.tmdbMovies.Dto.TmdbMovieDetailsResponse;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 

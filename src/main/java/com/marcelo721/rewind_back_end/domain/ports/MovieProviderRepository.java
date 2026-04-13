@@ -8,4 +8,6 @@ import java.util.List;
 public interface MovieProviderRepository {
     MovieDetails getByImdbId(String imdbId);
     List<MovieSummary> searchByTitle(String title);
+    List<MovieSummary> searchByGenre(String genre, int page );
+
 }
