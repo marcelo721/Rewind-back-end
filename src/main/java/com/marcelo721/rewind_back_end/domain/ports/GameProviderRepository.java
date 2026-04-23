@@ -1,12 +1,13 @@
-package com.marcelo721.rewind_back_end.Application.useCases;
+package com.marcelo721.rewind_back_end.domain.ports;
 
 import com.marcelo721.rewind_back_end.domain.model.entities.GameDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.GameSummary;
 
-import java.util.List;
-import java.util.UUID;
 
-public interface GameDetailsUseCases {
+import java.util.List;
+
+public interface GameProviderRepository {
+
     GameDetails getById(String id);
     List<GameSummary> searchByTitle(String title);
 }

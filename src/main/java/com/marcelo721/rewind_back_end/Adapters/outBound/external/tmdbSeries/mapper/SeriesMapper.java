@@ -1,4 +1,4 @@
-package com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbSeries.mapper;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbSeries.mapper;
 
 
 import com.marcelo721.rewind_back_end.domain.model.entities.SeriesSummary;

@@ -1,8 +1,9 @@
-package com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbSeries.provider;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbSeries.provider;
 
-import com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbSeries.client.OmdbClient;
-import com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbSeries.client.TmdbClient;
-import com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbSeries.mapper.SeriesMapper;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbSeries.client.OmdbClient;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbSeries.client.TmdbClient;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbSeries.mapper.SeriesMapper;
+
 import com.marcelo721.rewind_back_end.domain.model.entities.SeriesDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.SeriesSummary;
 import com.marcelo721.rewind_back_end.domain.ports.SeriesProviderRepository;

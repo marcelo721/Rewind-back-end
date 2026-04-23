@@ -6,8 +6,6 @@ import com.marcelo721.rewind_back_end.Adapters.outBound.external.GoogleBooks.dto
 import com.marcelo721.rewind_back_end.Adapters.outBound.external.GoogleBooks.dto.VolumeInfo;
 import com.marcelo721.rewind_back_end.domain.model.entities.BookDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.BookSummary;
-import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
-import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
 import com.marcelo721.rewind_back_end.domain.ports.BookProviderRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;

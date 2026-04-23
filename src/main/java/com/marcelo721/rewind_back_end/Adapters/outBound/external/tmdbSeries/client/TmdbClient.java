@@ -1,4 +1,4 @@
-package com.marcelo721.rewind_back_end.Adapters.outbound.external.tmdbSeries.client;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.tmdbSeries.client;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;

@@ -3,16 +3,12 @@ package com.marcelo721.rewind_back_end.Adapters.inBoud.Controllers;
 import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.MovieDto.MovieResponseDto;
 import com.marcelo721.rewind_back_end.Application.useCases.ContentUseCases;
 import com.marcelo721.rewind_back_end.Application.useCases.MovieDetailsUseCases;
-import com.marcelo721.rewind_back_end.domain.model.entities.Content;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
-import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/movies")

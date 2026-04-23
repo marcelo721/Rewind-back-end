@@ -3,7 +3,6 @@ package com.marcelo721.rewind_back_end.Application.useCasesImpl;
 import com.marcelo721.rewind_back_end.Application.useCases.BookDetailsUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.BookDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.BookSummary;
-import com.marcelo721.rewind_back_end.domain.model.entities.MovieSummary;
 import com.marcelo721.rewind_back_end.domain.ports.BookProviderRepository;
 import org.springframework.stereotype.Service;
 
