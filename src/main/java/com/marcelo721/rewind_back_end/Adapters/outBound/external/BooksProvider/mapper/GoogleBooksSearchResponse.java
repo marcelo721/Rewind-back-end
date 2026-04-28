@@ -1,4 +1,4 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.GoogleBooks.dto;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.BooksProvider.mapper;
 
 import java.util.List;
 

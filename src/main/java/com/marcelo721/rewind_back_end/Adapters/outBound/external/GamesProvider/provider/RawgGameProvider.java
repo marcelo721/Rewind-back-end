@@ -1,7 +1,7 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.rawgGames.provider;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.GamesProvider.provider;
 
 
-import com.marcelo721.rewind_back_end.Adapters.outBound.external.rawgGames.client.RawgClient;
+import com.marcelo721.rewind_back_end.Adapters.outBound.external.GamesProvider.client.RawgClient;
 import com.marcelo721.rewind_back_end.domain.model.entities.GameDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.GameSummary;
 import com.marcelo721.rewind_back_end.domain.ports.GameProviderRepository;

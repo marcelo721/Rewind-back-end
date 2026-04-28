@@ -1,4 +1,4 @@
-package com.marcelo721.rewind_back_end.Adapters.outBound.external.rawgGames.client;
+package com.marcelo721.rewind_back_end.Adapters.outBound.external.GamesProvider.client;
 
 
 import org.springframework.stereotype.Component;
