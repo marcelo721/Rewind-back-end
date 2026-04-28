@@ -4,7 +4,6 @@ import java.util.List;
 
 public class BookDetails {
 
-    private String id;
     private String title;
     private List<String> authors;
     private String description;
@@ -12,8 +11,7 @@ public class BookDetails {
     private String publisher;
     private String publishedDate;
 
-    public BookDetails (String id, String title, List<String> authors, String description, String thumbnail, String publisher, String publishedDate) {
-        this.id = id;
+    public BookDetails (String title, List<String> authors, String description, String thumbnail, String publisher, String publishedDate) {
         this.title = title;
         this.authors = authors;
         this.description = description;
@@ -22,13 +20,7 @@ public class BookDetails {
         this.publishedDate = publishedDate;
     }
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;

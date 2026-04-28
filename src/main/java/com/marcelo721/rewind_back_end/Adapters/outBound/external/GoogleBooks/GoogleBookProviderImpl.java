@@ -17,6 +17,7 @@ import java.util.List;
 public class GoogleBookProviderImpl implements BookProviderRepository {
 
     private final WebClient webClient;
+    private  String apiKey = System.getenv("BOOKS_API");
 
     public GoogleBookProviderImpl(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder
@@ -27,7 +28,10 @@ public class GoogleBookProviderImpl implements BookProviderRepository {
     @Override
     public BookDetails findById(String id) {
         GoogleBooksResponse response = webClient.get()
-                .uri("/volumes/{id}", id)
+                .uri(uriBuilder -> uriBuilder
+                        .path("/volumes/{id}")
+                        .queryParam("key", apiKey)
+                        .build(id))
                 .retrieve()
                 .bodyToMono(GoogleBooksResponse.class)
                 .block();
@@ -43,12 +47,17 @@ public class GoogleBookProviderImpl implements BookProviderRepository {
                 .uri(uriBuilder -> uriBuilder
                         .path("/volumes")
                         .queryParam("q", "intitle:" + title)
+                        .queryParam("key", apiKey)
                         .build())
                 .retrieve()
                 .bodyToMono(GoogleBooksSearchResponse.class)
                 .block();
 
         List<BookSummary> books = new ArrayList<>();
+
+        if (response == null || response.getItems() == null) {
+            return books;
+        }
 
         for (GoogleBookItem item : response.getItems()) {
             books.add(mapToBookSummary(item));
@@ -61,7 +70,6 @@ public class GoogleBookProviderImpl implements BookProviderRepository {
         VolumeInfo info = response.getVolumeInfo();
 
         return new BookDetails(
-                response.getId(),
                 info.getTitle(),
                 info.getAuthors(),
                 info.getDescription(),
@@ -82,4 +90,3 @@ public class GoogleBookProviderImpl implements BookProviderRepository {
         );
     }
 }
- 
