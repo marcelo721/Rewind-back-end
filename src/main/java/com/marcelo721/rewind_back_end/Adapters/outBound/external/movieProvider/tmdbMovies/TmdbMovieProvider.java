@@ -45,7 +45,7 @@ public class TmdbMovieProvider {
 
         return response.getResults()
                 .stream()
-                .limit(10) // 🔥 reduz chamadas externas
+                .limit(10)
                 .map(movie -> {
                     String imdbId = getImdbId(movie.getId());
 
@@ -62,12 +62,12 @@ public class TmdbMovieProvider {
                 .toList();
     }
 
-    @Cacheable(value = "tmdb-imdb", key = "#tmdbId") // 🔥 cache correto
+    @Cacheable(value = "tmdb-imdb", key = "#tmdbId")
     public String getImdbId(int tmdbId) {
 
         TmdbMovieDetailsResponse response = webClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        .path("/movie/" + tmdbId) // 🔥 endpoint correto
+                        .path("/movie/" + tmdbId)
                         .queryParam("api_key", apiKey)
                         .build())
                 .retrieve()
@@ -82,7 +82,6 @@ public class TmdbMovieProvider {
         return "https://image.tmdb.org/t/p/w500" + posterPath;
     }
 
-    // 🔥 Mapeamento básico (pode melhorar depois)
     private int mapGenreToId(String genre) {
         return switch (genre.toLowerCase()) {
             case "action" -> 28;

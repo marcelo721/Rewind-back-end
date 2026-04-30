@@ -17,8 +17,7 @@ public class OmdbMovieMapper {
         List<String> genres = split(dto.genre);
 
         return new MovieDetails(
-                UUID.randomUUID(),
-                null,
+                dto.poster,
                 dto.title,
                 dto.plot,
                 dto.director,

@@ -5,9 +5,7 @@ import java.util.UUID;
 
 public class MovieDetails {
 
-    private UUID id;
-    private Content content;
-
+    private String postUrl;
     private String title;
     private String description;
 
@@ -33,14 +31,13 @@ public class MovieDetails {
     private String awards;
 
 
-    public MovieDetails(UUID id, Content content, String title, String description,
+    public MovieDetails(String postUrl, String title, String description,
                         String director, List<String> writers, List<String> cast,
                         List<String> genres, String rated, Integer durationMinutes,
                         String originalLanguage, String country, String productionCompany,
                         String boxOffice, Double imdbRating, Integer imdbVotes, Integer metascore, String awards) {
-        this.id = id;
-        this.content = content;
         this.title = title;
+        this.postUrl = postUrl;
         this.description = description;
         this.director = director;
         this.writers = writers;
@@ -59,22 +56,6 @@ public class MovieDetails {
     }
 
     public MovieDetails() {
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public Content getContent() {
-        return content;
-    }
-
-    public void setContent(Content content) {
-        this.content = content;
     }
 
     public String getDirector() {
@@ -203,5 +184,13 @@ public class MovieDetails {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPostUrl() {
+        return postUrl;
+    }
+
+    public void setPostUrl(String postUrl) {
+        this.postUrl = postUrl;
     }
 }

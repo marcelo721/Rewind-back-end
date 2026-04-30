@@ -23,7 +23,7 @@ public class MovieDetailsController {
     }
 
     @GetMapping("/imdb/{imdbId}")
-    public ResponseEntity<MovieResponseDto> getFromOmdb(@PathVariable String imdbId) {
+    public ResponseEntity<MovieResponseDto> getById(@PathVariable String imdbId) {
         MovieDetails movie = service.getFromProvider(imdbId);
         return ResponseEntity.ok(MovieResponseDto.toDto(movie));
     }

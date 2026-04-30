@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 public record MovieResponseDto(
-        UUID id,
-        String contentId,
+        String poster,
         String title,
         String description,
         String director,
@@ -27,8 +26,7 @@ public record MovieResponseDto(
 ) {
     public static MovieResponseDto toDto(MovieDetails entity) {
         return new MovieResponseDto(
-                entity.getId(),
-                entity.getContent() != null ? entity.getContent().getId().toString() : null,
+                entity.getPostUrl(),
                 entity.getTitle(),
                 entity.getDescription(),
                 entity.getDirector(),
