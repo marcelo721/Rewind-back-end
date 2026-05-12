@@ -10,7 +10,8 @@ public class MusicBrainzClient {
     private final String email = System.getenv("EMAIL");
 
     public MusicBrainzClient(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.build();
+        this.webClient = WebClient.builder().build();
+
     }
 
     public String getArtistAlbums(String artistId) {
@@ -23,7 +24,7 @@ public class MusicBrainzClient {
                         .queryParam("inc", "artist-credits")
                         .queryParam("fmt", "json")
                         .build())
-                .header("User-Agent", "RewindApp/1.0 (" + email + ")")
+                .header("User-Agent", "RewindApp (" + email + ")")
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
@@ -38,7 +39,7 @@ public class MusicBrainzClient {
                         .queryParam("release-group", releaseGroupId)
                         .queryParam("fmt", "json")
                         .build())
-                .header("User-Agent", "RewindApp/1.0 (" + email + ")")
+                .header("User-Agent", "RewindApp (" + email + ")")
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
@@ -53,7 +54,7 @@ public class MusicBrainzClient {
                         .queryParam("inc", "recordings")
                         .queryParam("fmt", "json")
                         .build())
-                .header("User-Agent", "RewindApp/1.0 (" + email + ")")
+                .header("User-Agent", "RewindApp (" + email + ")")
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();

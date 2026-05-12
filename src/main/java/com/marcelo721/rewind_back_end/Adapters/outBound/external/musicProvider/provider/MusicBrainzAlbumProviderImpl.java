@@ -6,6 +6,7 @@ import com.marcelo721.rewind_back_end.domain.model.entities.Album;
 import com.marcelo721.rewind_back_end.domain.model.entities.Track;
 import com.marcelo721.rewind_back_end.domain.ports.AlbumProviderRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
@@ -87,8 +88,16 @@ public class MusicBrainzAlbumProviderImpl implements AlbumProviderRepository {
 
             return albums;
 
+        }catch (WebClientResponseException e) {
+            System.out.println("Status Code: " + e.getStatusCode());
+            System.out.println("Response Body: " + e.getResponseBodyAsString());
+            System.out.println("Headers: " + e.getHeaders());
+            e.printStackTrace();
+
+            throw new RuntimeException("Erro ao buscar álbuns do artista: " + e.getMessage());
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao buscar álbuns do artista", e);
+            e.printStackTrace();
+            throw new RuntimeException("Erro interno: " + e.getMessage());
         }
     }
 }

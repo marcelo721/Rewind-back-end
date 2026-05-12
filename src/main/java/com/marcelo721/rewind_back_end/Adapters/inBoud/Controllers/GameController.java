@@ -22,7 +22,6 @@ public class GameController {
         return  ResponseEntity.ok(gameDetailsUseCases.searchByTitle(title));
     }
 
-
     @GetMapping("/{id}")
     public ResponseEntity<GameDetails> getDetails(@PathVariable String id) {
         return ResponseEntity.ok(gameDetailsUseCases.getById(id));

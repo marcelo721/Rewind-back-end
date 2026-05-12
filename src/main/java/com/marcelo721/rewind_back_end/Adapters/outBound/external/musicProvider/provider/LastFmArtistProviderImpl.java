@@ -17,10 +17,15 @@ import java.util.List;
 public class LastFmArtistProviderImpl implements ArtistProviderRepository {
 
     private final LastFmClient client;
+    private final SpotifyArtistProviderImpl spotifyProvider;
     private final ObjectMapper mapper = new ObjectMapper();
 
-    public LastFmArtistProviderImpl(LastFmClient client) {
+    public LastFmArtistProviderImpl(
+            LastFmClient client,
+            SpotifyArtistProviderImpl spotifyProvider
+    ) {
         this.client = client;
+        this.spotifyProvider = spotifyProvider;
     }
 
     @Override
@@ -45,13 +50,8 @@ public class LastFmArtistProviderImpl implements ArtistProviderRepository {
 
                 String artistId = artistNode.path("mbid").asText("");
 
-                if (artistId.isEmpty()) {
-                    continue;
-                }
-
-                if (!normalized.contains(searchTerm)) {
-                    continue;
-                }
+                if (artistId.isEmpty()) continue;
+                if (!normalized.contains(searchTerm)) continue;
 
                 if (normalized.contains("feat")
                         || normalized.contains("ft")
@@ -106,6 +106,8 @@ public class LastFmArtistProviderImpl implements ArtistProviderRepository {
                 throw new RuntimeException("Artista não encontrado");
             }
 
+            String artistName = artistNode.path("name").asText("");
+
             String biography = artistNode.path("bio")
                     .path("summary")
                     .asText("");
@@ -131,13 +133,41 @@ public class LastFmArtistProviderImpl implements ArtistProviderRepository {
                 }
             }
 
+            Artist spotifyArtist = null;
+
+            try {
+                spotifyArtist = spotifyProvider.getArtistByName(artistName);
+            } catch (Exception ignored) {
+            }
+
+            Long spotifyFollowers = 0l;
+
+            if (spotifyArtist != null) {
+                spotifyFollowers = spotifyArtist.getFollowers();
+
+                if (spotifyFollowers == 0) {
+                    spotifyFollowers = spotifyArtist.getFollowers();
+                }
+            }
+
+            String imageUrl = spotifyArtist != null
+                    ? spotifyArtist.getImageUrl()
+                    : "";
+
+            // Mescla gêneros do Spotify se LastFM não tiver
+            if (genres.isEmpty() && spotifyArtist != null) {
+                genres = spotifyArtist.getGenres();
+            }
+
             return new Artist(
                     artistNode.path("mbid").asText(),
-                    artistNode.path("name").asText(),
+                    artistName,
                     biography,
                     genres,
                     listeners,
-                    playCount
+                    playCount,
+                    spotifyFollowers,
+                    imageUrl
             );
 
         } catch (Exception e) {
