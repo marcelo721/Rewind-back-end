@@ -8,6 +8,7 @@ import com.marcelo721.rewind_back_end.domain.ports.ContentRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -39,6 +40,11 @@ public class ContentRepositoryImpl implements ContentRepository {
                 .stream()
                 .map(ContentPersistenceMapper::toDomain)
                 .toList();
+    }
+
+    @Override
+    public Optional<Content> findBySourceAndExternalId(String source, String externalId) {
+        return Optional.empty();
     }
 
 

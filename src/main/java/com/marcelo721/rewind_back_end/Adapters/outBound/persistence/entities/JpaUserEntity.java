@@ -5,6 +5,7 @@ import com.marcelo721.rewind_back_end.domain.model.entities.User;
 import com.marcelo721.rewind_back_end.domain.model.enums.StatusAccount;
 import com.marcelo721.rewind_back_end.domain.model.enums.UserType;
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
 
 
 import java.io.Serializable;
@@ -13,10 +14,10 @@ import java.util.UUID;
 @Entity
 @Table(name = "users")
 public class JpaUserEntity extends AuditableEntity implements Serializable {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id", nullable = false, unique = true)
+    @GeneratedValue
+    @JdbcTypeCode(java.sql.Types.VARCHAR)
+    @Column(length = 36, columnDefinition = "varchar(36)", updatable = false, nullable = false)
     private UUID id;
 
 

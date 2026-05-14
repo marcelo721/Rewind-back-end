@@ -1,5 +1,6 @@
 package com.marcelo721.rewind_back_end.Adapters.inBoud.Controllers;
 
+import com.marcelo721.rewind_back_end.Adapters.inBoud.Dto.BookDto.BookResponseDto;
 import com.marcelo721.rewind_back_end.Application.useCases.BookDetailsUseCases;
 import com.marcelo721.rewind_back_end.domain.model.entities.BookDetails;
 import com.marcelo721.rewind_back_end.domain.model.entities.BookSummary;
@@ -18,8 +19,9 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity<List<BookSummary>> searchBooks(@RequestParam String title) {
-        return ResponseEntity.ok(BookuseCases.searchByTitle(title));
+    public ResponseEntity<List<BookResponseDto>> searchBooks(@RequestParam String title) {
+         List<BookSummary> list =  BookuseCases.searchByTitle(title);
+         return ResponseEntity.ok(BookResponseDto.toListDto(list));
     }
 
     @GetMapping("/{id}")

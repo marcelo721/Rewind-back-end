@@ -29,6 +29,16 @@ public class Content {
         this.averageRating = averageRating;
         this.ratingsCount = ratingsCount;
     }
+    public Content(UUID id, ContentType contentType,
+                   String source, String externalId
+    ) {
+        this.id = id;
+        this.contentType = contentType;
+        this.source = source;
+        this.externalId = externalId;
+
+
+    }
 
     public Content() {
     }

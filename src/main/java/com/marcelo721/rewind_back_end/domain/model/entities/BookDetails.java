@@ -11,7 +11,7 @@ public class BookDetails {
     private String publisher;
     private String publishedDate;
 
-    public BookDetails (String title, List<String> authors, String description, String thumbnail, String publisher, String publishedDate) {
+    public BookDetails(String title, List<String> authors, String description, String thumbnail, String publisher, String publishedDate) {
         this.title = title;
         this.authors = authors;
         this.description = description;
